@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Algoritmusok_1._2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] pontszam = new int[8] { 2, 67, 78, 89, 90, 92, 95, 100 };
+            int pont, k, A = 0, F = 7;
+            Console.WriteLine("Adja meg a keresett pontot!");
+            pont = int.Parse(Console.ReadLine());
+            do
+            {
+                k = (A + F) / 2;
+                if (pontszam[k] < pont) { A = k + 1; }
+                if (pontszam[k] > pont) { F = k - 1; }
+            }
+            while (A <= F && pontszam[k] != pont);
+            if (A <= F) Console.WriteLine("A keresett pont a Pontszám tömb {0} indexű eleme.", k); //0 az első elem
+            else Console.WriteLine("A keresett pont nincs a pontszám tömbben.");
+        }
+    }
+}
